@@ -32,14 +32,14 @@ Debes dejar tu código en un repo git publico o uno al cual podamos acceder y lu
 
 ## **OBJETIVO**
 
-El siguiente diagrama de secuencia (ver link) muestra cómo es el el flujo de las peticiones de información para este ejercicio: [https://cs1.ssltrust.me/s/6u9aC5hCTEhTpT1](https://cs1.ssltrust.me/s/6u9aC5hCTEhTpT1)
+El siguiente diagrama de secuencia [(ver link)](https://cs1.ssltrust.me/s/6u9aC5hCTEhTpT1) muestra cómo es el el flujo de las peticiones de información para este ejercicio.
 Si bien el formateo del contenido de archivos no es una llamada REST, el diagrama la incluye porque es una parte fundamental de este desafío.
 
 Este challenge te pide desarrollar un frontend que consumirá datos de un API que también deberás desarrollar.
 El frontend deberá mostrar la información obtenida respetando las pautas que se describirán más abajo.
 Así mismo la API también debe ser desarrollada siguiendo requisitos explícitos.
 
-EL API Externo es provisto por nosotros y sólo debe ser consumido.
+**EL API Externo es provisto por nosotros y sólo debe ser consumido.**
 
 ---
 
