@@ -32,7 +32,7 @@ Debes dejar tu código en un repo git publico o uno al cual podamos acceder y lu
 
 ## **OBJETIVO**
 
-El siguiente diagrama de secuencia (ver link) muestra cómo es el el flujo de las peticiones de información para este ejercicio: https://cs1.ssltrust.me/s/6u9aC5hCTEhTpT1
+El siguiente diagrama de secuencia (ver link) muestra cómo es el el flujo de las peticiones de información para este ejercicio: [https://cs1.ssltrust.me/s/6u9aC5hCTEhTpT1](https://cs1.ssltrust.me/s/6u9aC5hCTEhTpT1)
 Si bien el formateo del contenido de archivos no es una llamada REST, el diagrama la incluye porque es una parte fundamental de este desafío.
 
 Este challenge te pide desarrollar un frontend que consumirá datos de un API que también deberás desarrollar.
@@ -43,11 +43,11 @@ EL API Externo es provisto por nosotros y sólo debe ser consumido.
 
 ---
 
-1) API
+#### 1) **BACKEND**
 
 El API a desarrollar, es un API REST que toma información de un API externa y la reformatea para exponerla.
-El API Externo de la cual se toma la información está documentada en el siguiente Swagger: https://echo-serv.tbxnet.com/explorer/#/Secret
-Para poder utilizarla, la API Key es: "Bearer aSuperSecretKey".
+El API Externo de la cual se toma la información está documentada en el siguiente Swagger: [https://echo-serv.tbxnet.com/explorer/#/Secret](https://echo-serv.tbxnet.com/explorer/#/Secret)
+Para poder utilizarla, la API Key es: **Bearer aSuperSecretKey**.
 
 Los métodos a utilizar están en la sección "Secret" de la documentación del Swagger, pero a modo de resumen se indican a continuación:
 
