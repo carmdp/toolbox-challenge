@@ -7,9 +7,9 @@
 ### _CODE CHALLENGE_
 
 El JavaScript challenge para Full Stack está dividido en 3 partes:
-1) Un API usando Node + Express
-2) Un Frontend cliente usando Bootstrap + React
-3) Puntos opcionales para el challenge
+1. Un API usando Node + Express
+1. Un Frontend cliente usando Bootstrap + React
+1. Puntos opcionales para el challenge
 
 
 **¿Que tomamos en cuenta al revisar el challenge?**
@@ -43,7 +43,7 @@ Así mismo la API también debe ser desarrollada siguiendo requisitos explícito
 
 ---
 
-#### 1) **BACKEND**
+#### 1. **BACKEND**
 
 El API a desarrollar, es un API REST que toma información de un API externa y la reformatea para exponerla.
 El API Externo de la cual se toma la información está documentada en el siguiente Swagger: [https://echo-serv.tbxnet.com/explorer/#/Secret](https://echo-serv.tbxnet.com/explorer/#/Secret)
@@ -52,22 +52,22 @@ Para poder utilizarla, la API Key es: **Bearer aSuperSecretKey**.
 Los métodos a utilizar están en la sección "Secret" de la documentación del Swagger, pero a modo de resumen se indican a continuación:
 
 - Para listar los archivos
-$ curl -X GET https://echo-serv.tbxnet.com/v1/secret/files -H 'authorization: Bearer aSuperSecretKey'
+$ curl -X GET ht<span>tps://</span>echo-serv.tbxnet.com/v1/secret/files -H 'authorization: Bearer aSuperSecretKey'
 {
 "files":["file1.csv",....]
 }
 
 
 - Para descargar un archivo
-$ curl -X GET https://echo-serv.tbxnet.com/v1/secret/file/file1.csv -H 'authorization: Bearer aSuperSecretKey'
+$ curl -X GET ht<span>tps://</span>echo-serv.tbxnet.com/v1/secret/file/file1.csv -H 'authorization: Bearer aSuperSecretKey'
 
 
 - Formato del archivo
 Los archivos siguen el formato CSV estricto con las siguientes columnas:
-- file: el nombre del archivo.
-- text: un texto de largo variable
-- number: un número
-- hex: un hexadecimal de 32 dígitos
+- **file:** el nombre del archivo.
+- **text:** un texto de largo variable
+- **number:** un número
+- **hex:** un hexadecimal de 32 dígitos
 
 Ejemplo del contenido de un archivo con información correctamente formateada:
 
