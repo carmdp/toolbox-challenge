@@ -43,7 +43,7 @@ Así mismo la API también debe ser desarrollada siguiendo requisitos explícito
 
 ---
 
-#### 1. **BACKEND**
+### 1. **BACKEND**
 
 El API a desarrollar, es un API REST que toma información de un API externa y la reformatea para exponerla.
 El API Externo de la cual se toma la información está documentada en el siguiente Swagger: [https://echo-serv.tbxnet.com/explorer/#/Secret](https://echo-serv.tbxnet.com/explorer/#/Secret)
@@ -78,24 +78,24 @@ file1.csv,PNzRfORtKtEDOzmIVrQuSh,74088708,3e29651a63a5202a5661e05a060401fb
 file1.csv,d,6173,f9e1bcdb9e3784acc448af34f4727252
 
 
-- Para procesar la información
+**Para procesar la información**
 
-1) Se deben llamar al listado de archivos /v1/secret/files
-2) Descargar cada file usando /v1/secret/file/{file}
-3) Formatear la información en los CSV:
+1. Se deben llamar al listado de archivos /v1/secret/files
+1. Descargar cada file usando /v1/secret/file/{file}
+1. Formatear la información en los CSV:
 
-Tener en cuenta que:
+**Tener en cuenta que:**
 - Pueden existir archivos vacíos y líneas con error (que no tenga la cantidad de datos suficientes).
 - Si una línea tiene error se debe descartar la misma.
 - También pueden existir errores al descargar un archivo.
 
 
-Se debe entonces crear el API para funcionar desde el endpoint 'GET /files/data' usando NodeJs + ExpressJs.
+Se debe entonces crear el API para funcionar desde el endpoint '**GET /files/data**' usando NodeJs + ExpressJs.
 Este endpoint es el encargado de buscar los archivos y formatear la información tal como se indicó en los pasos descriptos previamente.
 Toda la información generada por el API deberá ser definida como content-type: application/json.
 
 Ejemplo usando curl (llamada y respuesta):
-$ curl -v -X GET "http://apihost/files/data" -H "accept: application/json"
+$ curl -v -X GET "ht<span>tp://</<span>apihost/files/data" -H "accept: application/json"
 
 > GET /files/data HTTP/1.1
 > Host: apihost
@@ -126,7 +126,8 @@ También se deben crear los tests que validan el API usando Mocha + Chai.
 Los tests deben poder correrse usando npm test y el API debe poder iniciarse usando npm start.
 
 
-REQUISITOS TÉCNICOS API
+#### **REQUISITOS TÉCNICOS API**
+---
 
 - El código que envíes debe correr usando NodeJS 14 y no depender de librerías que están instaladas de forma global, variables de entorno o configuraciones de algún sistema operativo especifico.
 
@@ -134,23 +135,24 @@ REQUISITOS TÉCNICOS API
 
 - En cuanto a las librerías y frameworks, puedes usar la versión que consideres apropiadas:
 
-ExpressJs https://expressjs.com/
+[ExpressJs](https://expressjs.com/)
 
-Mocha https://mochajs.org/
+[Mocha](https://mochajs.org/)
 
-Chai https://www.chaijs.com/
+[Chai](https://www.chaijs.com/)
 
 ---
 
-2) FRONT
+2. ### **FRONTEND**
 
-Deberás desarrollar una App en React que deberá actuar como cliente del API ya desarrollado y que permita ver la información de /files/data de manera ordenada en pantalla.
+Deberás desarrollar una App en React que deberá actuar como cliente del API ya desarrollado y que permita ver la información de **/files/data** de manera ordenada en pantalla.
 
-LAYOUT
-Usando React + React Bootstrap se debe crear una pantalla similar a la que se muestra en este wireframe (ver link): https://cs1.ssltrust.me/s/ECH9VusiMmi3ac1
+_**LAYOUT**_
+
+Usando React + React Bootstrap se debe crear una pantalla similar a la que se muestra en este wireframe [(ver link)](https://cs1.ssltrust.me/s/ECH9VusiMmi3ac1)
 
 
-REQUISITOS TÉCNICOS FRONTEND
+#### **REQUISITOS TÉCNICOS FRONTEND**
 - Se deberá usar programación funcional y Hook Effects en React.
 
 - El código que envíes debe correr usando NodeJS 16 y no depender de librerías instaladas de forma global, variables de entorno o configuraciones de algún sistema operativo especifico.
@@ -161,32 +163,31 @@ REQUISITOS TÉCNICOS FRONTEND
 
 - En cuanto a las librerías y frameworks, puedes usar la versión que consideres apropiadas de:
 
-Webpack https://webpack.js.org/
+[Webpack](https://webpack.js.org/)
 
-React https://reactjs.org/
+[React](https://reactjs.org/)
 
-React Bootstrap https://react-bootstrap.github.io/
-
+[React Bootstrap](https://react-bootstrap.github.io/)
 
 ---
 
-3) PUNTOS OPCIONALES
+3. ### **PUNTOS OPCIONALES**
 
-API
-- Un endpoint GET /files/list que dé como respuesta la lista de archivos disponibles tal cual como se la muestra en el API Externa.
+* **_BACKEND API_**
+    - Un endpoint GET **/files/list** que dé como respuesta la lista de archivos disponibles tal cual como se la muestra en el API Externa.
 
-- Agregar un filtro por queryparam para poder pedir los datos de un archivo especifico: /files/data?fileName=<Nombre del archivo>.
+    - Agregar un filtro por queryparam para poder pedir los datos de un archivo especifico: **/files/data?fileName=Nombre del archivo**.
 
-- Usar StandarJs JavaScript Standard Style.
-
-
-FRONTEND
-- Usar Redux Redux - A predictable state container for JavaScript apps. | https://redux.js.org/.
-
-- Test unitarios usando Jest | https://jestjs.io/.
-
-- Poder filtrar por "fileName" usando el punto opcional del API de listado de archivos y filtro por queryparam.
+    - Usar StandarJs JavaScript Standard Style.
 
 
-GLOBAL
-- Usar Docker o Docker Compose para correr las apps.
+* **_FRONTEND_**
+    - Usar Redux Redux - A predictable state container for JavaScript apps. | https://redux.js.org/.
+
+    - Test unitarios usando Jest | https://jestjs.io/.
+
+    - Poder filtrar por "fileName" usando el punto opcional del API de listado de archivos y filtro por queryparam.
+
+
+* **_GLOBAL_**
+    - Usar Docker o Docker Compose para correr las apps.
