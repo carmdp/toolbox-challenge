@@ -7,7 +7,12 @@ const instance = axios.create({
     }
 });
 
-//Return list files in format JSON
+/**
+ * Return list files in format JSON
+ * @param {Object} req  
+ * @param {Object} res 
+ * @returns JSON Data
+ */
 async function GetDataFiles(req, res){
 
     try {
@@ -32,6 +37,7 @@ async function GetDataFiles(req, res){
             
             //Add element to return variable
             if (dataFile != null){
+                console.log(dataFile);
                 let convertToJson = formatedData(dataFile); //Convert file csv to json
                 if (convertToJson.length > 0){
                     arreObj.push({
@@ -41,58 +47,6 @@ async function GetDataFiles(req, res){
                 }
             }
         }
-
-
-      
-        res.send(arreObj);
-    
-    } catch (error) {
-        return res.send({
-            "status": error.response.status,
-            "code": error.code,
-            "message": error.message
-        })
-    }
-
-}
-
-//Return list files in format JSON
-async function GetFile(req, res){
-
-    try {
-        const file = req.query.fileName;
-
-        console.log("ANDA O NO ANDA", file);
-        
-        //Initialization variable return
-        const arreObj = [];
-
-   
-            //Get file content  
-            const dataFile = await 
-                callFile(file)
-                .then( response => response)
-                .catch((err)=>{
-                    //Return null if the file is wrong or does not found
-                    if (err.response.status === 404 || err.response.status === 500 )
-                        return null;
-                    
-                    throw new Error(error);
-                })
-            
-            //Add element to return variable
-            if (dataFile != null){
-                let convertToJson = formatedData(dataFile); //Convert file csv to json
-                if (convertToJson.length > 0){
-                    arreObj.push({
-                        file:file,
-                        lines:convertToJson
-                    });
-                }
-            }
-        
-
-        
       
         res.send(arreObj);
     
@@ -107,8 +61,12 @@ async function GetFile(req, res){
 }
 
 
-
-
+/**
+ * Return list files
+ * @param {Object} req 
+ * @param {Object} res 
+ * @returns 
+ */
 async function GetListFiles(req, res){
 
     try {
@@ -129,7 +87,11 @@ async function GetListFiles(req, res){
 }
 
 
-//Convert file csv to json
+/**
+ * Convert file csv to json
+ * @param {Array} data  
+ * @returns Array Objects
+ */
 function formatedData(data){
     //Initialization variable return
     let dataJson=[];
@@ -154,7 +116,13 @@ function formatedData(data){
 
 }
 
-//Create object with key/values
+
+/**
+ * Create object with key/values
+ * @param {String} keys 
+ * @param {String} values 
+ * @returns Object 
+ */
 function generateObject(keys,values){
     let obj={};
 
@@ -165,8 +133,12 @@ function generateObject(keys,values){
     return obj;
 }
 
- //Get list files
-const callFiles = () => {
+
+ /**
+  * Call list files external api
+  * @returns Object
+  */
+ const callFiles = () => {
     try {
         return instance.get('files').then( res => res.data);
     } catch (error) {
@@ -176,7 +148,12 @@ const callFiles = () => {
   
 }
 
-//Get file content  
+
+/**
+ * Call data file external api
+ * @param {String} name 
+ * @returns Object
+ */
 const callFile = (name) => {
     try {
         return  instance.get(`file/${name}`).then( response => response.data);
@@ -187,11 +164,10 @@ const callFile = (name) => {
 
 
 module.exports={
-    GetDataFiles,
-    GetListFiles,
-    callFiles,
-    callFile,
-    formatedData,
-    generateObject,
-    GetFile
+    GetDataFiles, //Return the list files and content in format JSON
+    GetListFiles, //Return the list files
+    callFiles,  // Call list files external API
+    callFile,   // Call file external API
+    formatedData,   //Convert file CSV to JSO
+    generateObject, //Create object with key/values
 }

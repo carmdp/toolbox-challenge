@@ -3,8 +3,7 @@ import {Image,Navbar, Nav} from 'react-bootstrap';
 import './css/navbar.css';
 
 
-export const NavbarBrand = (props) => {
-  const {children} = props;
+export const NavbarBrand = ({children}) => {
 
   return (<>
     <Navbar bg="dark" variant="dark">

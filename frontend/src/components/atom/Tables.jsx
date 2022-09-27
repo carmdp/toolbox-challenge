@@ -3,9 +3,15 @@ import {Table} from 'react-bootstrap';
 import {PaginationHead, PaginationFooter} from 'components/atom/Pagination';
 import './css/tables.css'
 
+
+/**
+ * Return component Table
+ * @param {Array} files 
+ * @returns Component
+ */
 export const CustomTable = ({files}) => {
     
-    let listShowFilesByPages = [1,3,5];
+    let listShowFilesByPages = [1,3,5]; 
   
     const [limitShowFiles,setLimitShowFiles] = useState(listShowFilesByPages[0]);
     const [page,setPage]=useState(1);
@@ -17,6 +23,7 @@ export const CustomTable = ({files}) => {
         setLimitShowFiles(value);   
     }
 
+    //Filter files
     const handleChangeFilterFile = (fileName) =>{ 
         if (fileName != ''){
             setListFiles(
@@ -25,8 +32,6 @@ export const CustomTable = ({files}) => {
         }else{
             setListFiles(files)
         }
-
-        console.log("value=",fileName,"list=",listFiles);
     }
 
     const handleChangeCurrentPage = (page) =>{ 
@@ -37,6 +42,7 @@ export const CustomTable = ({files}) => {
         setPosEndArreFiles(limitShowFiles*page);
         setPosStartArreFiles((limitShowFiles*page)-limitShowFiles)
     },[page,limitShowFiles])
+
 
     return (<>
             <PaginationHead 
@@ -56,8 +62,13 @@ export const CustomTable = ({files}) => {
    
 }
 
+/**
+ * Renders Table component
+ * @param {Object} obj 
+ * @returns Component
+ */
 function renderTable (obj) {
- console.log(obj.length);
+ 
     if (obj.length > 0){
         return(
             <Table striped bordered hover responsive>

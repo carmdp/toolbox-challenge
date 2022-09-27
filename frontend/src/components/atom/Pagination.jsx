@@ -3,9 +3,9 @@ import {Pagination, Form, Row, Col, InputGroup} from 'react-bootstrap';
 import './css/pagination.css';
 
 /**
- * Render component Select - Show Funcion que renderiza el componente para seleccionar catidad de registros a mostrar 
- * @param {Array} listShowFilesByPages   Arreglo con valores numericos
- * @param {Function} handleLimitChange Metodo que retorna valor de limite seleccionado
+ * Render component Select and filter 
+ * @param {Array} listShowFilesByPages  
+ * @param {Function} handleLimitChange 
  * @returns Component
  */
 export const PaginationHead = ({listShowFilesByPages, handleLimitChange, handleChangeFilter}) => {
@@ -40,10 +40,10 @@ export const PaginationHead = ({listShowFilesByPages, handleLimitChange, handleC
 
 
 /**
- * Componente de paginacion  para footer de la tabla
- * @param {Number} totalFiles  Cantidad de registros 
- * @param {Number} limitShowFiles  Limite de archivos a mostrar
- * @param {Function} handlePage  Metodo que retorna valor de la pagina actual  
+ * Component pagination footer
+ * @param {Number} totalFiles 
+ * @param {Number} limitShowFiles  
+ * @param {Function} handlePage  
  * @returns Component
  */
 export const PaginationFooter = ({totalFiles,limitShowFiles,handlePage}) => {
@@ -68,12 +68,13 @@ export const PaginationFooter = ({totalFiles,limitShowFiles,handlePage}) => {
     </>)
 }
 
+
 /**
- * Funcion que renderiza componente pagination  
- * @param {Number} pageStart    Pagina inicial
- * @param {Number} pageCurrent  Pagina actual
- * @param {Number} pageEnd  Ultima pagina  
- * @param {Function} handleCurrentPage  Metodo que retorna la pagina actual
+ * Render component pagination  
+ * @param {Number} pageStart    
+ * @param {Number} pageCurrent  
+ * @param {Number} pageEnd   
+ * @param {Function} handleCurrentPage 
  * @returns Component 
  */
 const PaginationTable = ({pageStart,pageCurrent,pageEnd, handleCurrentPage}) => {
@@ -169,10 +170,9 @@ const PaginationTable = ({pageStart,pageCurrent,pageEnd, handleCurrentPage}) => 
 }
 
 
-
 /**
- * Funcion que pinta y activa pagina actual. 
- * @param {Numbre} page Pagina actual donde esta posicionado.
+ * Function that activates current page. 
+ * @param {Numbre} page Current page where it is positioned.
  * @param {Number} index Indice
  * @returns Boolean
  */
@@ -185,9 +185,9 @@ function activePage(page,index){
 
 
 /**
- * Funcion que devuelve cantidad de paginas que tendra la tabla.
- * @param {Number} total  Cantidad de registros obtenidos
- * @param {Number} limit  Limite de registros por paginas
+ * Function returns total number of pages.
+ * @param {Number} total  Quantity of register
+ * @param {Number} limit  Limit of register by pages
  * @returns Number
  */
 function calculatePages(total,limit){

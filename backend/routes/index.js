@@ -4,7 +4,6 @@ var filesController = require('../controllers/filesControllers');
 
 
 router.get('/files/list', filesController.GetListFiles);
-router.get('/files/juan/:fileName', filesController.GetFile);
 router.get('/files/data', filesController.GetDataFiles);
 
 
