@@ -11,10 +11,22 @@ export const CustomTable = ({files}) => {
     const [page,setPage]=useState(1);
     const [posStartArreFiles, setPosStartArreFiles] =useState(0);
     const [posEndArreFiles, setPosEndArreFiles] =useState(limitShowFiles);
-    
+    const [listFiles,setListFiles] = useState(files)
 
     const handleChangeLimitShowFiles = (value) =>{ 
         setLimitShowFiles(value);   
+    }
+
+    const handleChangeFilterFile = (fileName) =>{ 
+        if (fileName != ''){
+            setListFiles(
+                files.filter((file) => file.file.includes(fileName))
+            )  
+        }else{
+            setListFiles(files)
+        }
+
+        console.log("value=",fileName,"list=",listFiles);
     }
 
     const handleChangeCurrentPage = (page) =>{ 
@@ -30,9 +42,10 @@ export const CustomTable = ({files}) => {
             <PaginationHead 
                 listShowFilesByPages={listShowFilesByPages} 
                 handleLimitChange={handleChangeLimitShowFiles} 
+                handleChangeFilter={handleChangeFilterFile}
             />
 
-            {renderTable(files.slice(posStartArreFiles,posEndArreFiles))}
+            {renderTable(listFiles.slice(posStartArreFiles,posEndArreFiles))}
             
             <PaginationFooter
                 limitShowFiles={limitShowFiles} 
@@ -44,6 +57,36 @@ export const CustomTable = ({files}) => {
 }
 
 function renderTable (obj) {
+ console.log(obj.length);
+    if (obj.length > 0){
+        return(
+            <Table striped bordered hover responsive>
+                <thead>
+                    <tr>
+                        <th>File Name</th>
+                        <th>Text</th>
+                        <th>Number</th>
+                        <th>Hex</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {   
+                        obj.map((data) => (
+                            data.lines.map( (row, k) =>(
+                                <tr key={k}>
+                                    <td>{data.file}</td>
+                                    <td>{row.text}</td>
+                                    <td>{row.number}</td>
+                                    <td>{row.hex}</td>
+                                </tr>
+                            ))
+                        ))
+                    }
+                </tbody>
+            </Table>
+        )
+    }
+
     return(
         <Table striped bordered hover responsive>
             <thead>
@@ -55,20 +98,7 @@ function renderTable (obj) {
                 </tr>
             </thead>
             <tbody>
-                {
-                        obj.map((data) => (
-
-                            data.lines.map( (row, k) =>(
-                                <tr key={k}>
-                                    <td>{data.file}</td>
-                                    <td>{row.text}</td>
-                                    <td>{row.number}</td>
-                                    <td>{row.hex}</td>
-                                </tr>
-                            ))
-
-                        ))
-                }
+                <tr><td colspan="4" className="text-center">No existen coincidencias</td></tr>
             </tbody>
         </Table>
     )

@@ -1,5 +1,5 @@
 import React, {useState,useEffect} from 'react';
-import {Pagination, Form, Row, Col} from 'react-bootstrap';
+import {Pagination, Form, Row, Col, InputGroup} from 'react-bootstrap';
 import './css/pagination.css';
 
 /**
@@ -8,18 +8,30 @@ import './css/pagination.css';
  * @param {Function} handleLimitChange Metodo que retorna valor de limite seleccionado
  * @returns Component
  */
-export const PaginationHead = ({listShowFilesByPages, handleLimitChange}) => {
+export const PaginationHead = ({listShowFilesByPages, handleLimitChange, handleChangeFilter}) => {
     
     return(<> 
         <Row className="d-flex justify-content-between m-2 py-2  row">
             <Col  xs={6} sm={6} md={6} lg={4} xl={4} className="align-self-center">
                 <Form.Label className="mb-0">Mostrar: </Form.Label>
-                <Form.Select id="filterNum" name="filterNum" onChange={(e) => handleLimitChange(e.target.value)} className="mx-2">
+                <Form.Select id="limitFiles" name="limitFiles" onChange={(e) => handleLimitChange(e.target.value)} className="mx-2">
                     {   listShowFilesByPages &&
                             listShowFilesByPages.map( (value,key) => <option value={value} key={key}>{value}</option> )
                     }
                 </Form.Select>
                 <Form.Label className="mb-0"> archivos. </Form.Label>
+            </Col>
+            <Col  xs={6} sm={6} md={6} lg={4} xl={4} className="align-self-center">
+                <InputGroup>
+                    <InputGroup.Text>Filtrar:</InputGroup.Text>
+                    <Form.Control
+                        id="filterFile" 
+                        name="filterFile" 
+                        onChange={(e) => handleChangeFilter(e.target.value)} 
+                        aria-label="Filtrar: " 
+                        placeholder="Ingrese nombre de archivo"
+                    />
+                </InputGroup>            
             </Col>
         </Row>
     </>)
