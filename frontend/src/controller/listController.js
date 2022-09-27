@@ -1,10 +1,10 @@
-import instance from 'config/Axios';
+import conection from 'config/Axios';
     
 
 export const GetListFiles = async () => {
   try {
     
-    return instance.get('/files/data').then((res) => res);
+    return conection.get('/files/data').then((res) => res);
   
   } catch (error) {
 

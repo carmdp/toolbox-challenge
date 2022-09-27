@@ -1,7 +1,9 @@
 import axios from 'axios';
 
-const instance = axios.create({baseURL:"http://192.168.1.10:3005/"});
-//const instance = axios.create({baseURL:"http://localhost:3005/"});
-//const instance = axios.create({baseURL:"https://www.tizusoft.com.ar:3002/"});
+const proto = 'http'; //Protocol web hhtp or https
+const host =  '192.168.1.10'; //url or ip or localhost
+const port = '3005'; // ports conection api
 
-export default instance;
+const conection = axios.create({baseURL:`${proto}://${host}:${port}`});
+
+export default conection;
