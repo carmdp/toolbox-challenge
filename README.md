@@ -1,8 +1,10 @@
-#Choice Técnico- FULL STACK
+## Choice Técnico- FULL STACK
+
 [Ver en formato PDF:https://cs1.ssltrust.me/s/YeaQjE8XFljaMxv](https://cs1.ssltrust.me/s/YeaQjE8XFljaMxv)
 
 ---
-CODE CHALLENGE
+
+### _CODE CHALLENGE_
 
 El JavaScript challenge para Full Stack está dividido en 3 partes:
 1) Un API usando Node + Express
@@ -10,23 +12,25 @@ El JavaScript challenge para Full Stack está dividido en 3 partes:
 3) Puntos opcionales para el challenge
 
 
-¿Que tomamos en cuenta al revisar el challenge?
+**¿Que tomamos en cuenta al revisar el challenge?**
 - El código entregado tiene que funcionar y cumplir con lo solicitado.
 - Las instrucciones y documentación deben ser prolijas y claras.
 - Debe cumplir con los requisitos técnicos solicitados (incluir las librerias/frameworks específicos, versiones pedidas, test, instrucciones para correrlo, documentación, etc).
 - Los puntos opcionales no restan en caso de no entregarse o no cumplir lo esperado, pero suman en caso de estar bien.
 
 
-¿Que hacer si tengo dudas sobre algo de lo pedido?
+**¿Que hacer si tengo dudas sobre algo de lo pedido?**
+
 Ponte en contacto con la persona que te envió el challenge, es preferible aclarar dudas antes de enviar mal el challenge y también nos ayuda a mejorar las consignas.
 
 
-¿Como envío el challenge?
+**¿Como envío el challenge?**
+
 Debes dejar tu código en un repo git publico o uno al cual podamos acceder y luego enviarle la información a la persona que te envió este examen (url y datos de acceso).
 
----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+---
 
-OBJETIVO
+## **OBJETIVO**
 
 El siguiente diagrama de secuencia (ver link) muestra cómo es el el flujo de las peticiones de información para este ejercicio: https://cs1.ssltrust.me/s/6u9aC5hCTEhTpT1
 Si bien el formateo del contenido de archivos no es una llamada REST, el diagrama la incluye porque es una parte fundamental de este desafío.
@@ -37,7 +41,7 @@ Así mismo la API también debe ser desarrollada siguiendo requisitos explícito
 
 EL API Externo es provisto por nosotros y sólo debe ser consumido.
 
----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+---
 
 1) API
 
@@ -136,7 +140,7 @@ Mocha https://mochajs.org/
 
 Chai https://www.chaijs.com/
 
----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+---
 
 2) FRONT
 
@@ -164,7 +168,7 @@ React https://reactjs.org/
 React Bootstrap https://react-bootstrap.github.io/
 
 
----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+---
 
 3) PUNTOS OPCIONALES
 
